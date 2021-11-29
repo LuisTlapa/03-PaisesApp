@@ -9,7 +9,7 @@ import { PaisService } from '../../services/pais.service';
 })
 export class PorRegionComponent {
 
-  regiones:string[]=['EU', 'EFTA', 'CARICOM', 'PA', 'AU', 'USAN', 'EEU', 'AL', 'ASEAN', 'CAIS', 'CEFTA', 'NAFTA', 'SAARC'];
+  regiones:string[]=['America', 'Asia', 'Europe', 'OCeania', 'Africa'];
 
   paises:Pais[]=[]
 

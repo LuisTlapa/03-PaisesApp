@@ -12,21 +12,24 @@ import { Pais } from '../../interfaces/pais.interfaces';
 })
 export class VerPaisComponent implements OnInit {
 
-  pais: Pais[]=[];
+  pais!: Pais;
  
   constructor( 
     private activatedRoute: ActivatedRoute,
     private paisService:PaisService
     ) { } // ActivateRote para cambios en el URL
 
-  ngOnInit(): void {
-    this.activatedRoute.params
-      .pipe(
-        switchMap( ({ id }) => this.paisService.verPais( id )  ),
-        tap( console.log )
-      )
-      .subscribe( pais => this.pais = pais );
-    
+    ngOnInit(): void {
+
+      this.activatedRoute.params
+        .pipe(
+          switchMap( ({ id }) => this.paisService.verPais( id )  ),
+          tap( console.log )
+        )
+        .subscribe( pais => this.pais = pais );
+  
+    }
+      
     /*this.activatedRoute.params // acceso al observable donde estan los parametros
     .pipe(
       switchMap(({id}) => this.paisService.verPais(id)),
@@ -42,6 +45,6 @@ export class VerPaisComponent implements OnInit {
         console.log(pais)
       })
     } )*/ //se mejorara
-  }
+  
 
 }
